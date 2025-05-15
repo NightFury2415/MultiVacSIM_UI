@@ -8,9 +8,9 @@ import { Activity, MapIcon, Truck, Hospital, Syringe, AlertCircle } from "lucide
 import GoogleMapComponent from "@/components/google-map"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { useEffect, useState } from "react"
-import Link from "next/link"
 
 export default function RoutesPage() {
+  const [apiKeyAvailable, setApiKeyAvailable] = useState(true)
   const [routeType, setRouteType] = useState("all")
   const [region, setRegion] = useState("all")
   const [optimizationPriority, setOptimizationPriority] = useState("balanced")
@@ -22,21 +22,17 @@ export default function RoutesPage() {
   const [routeData, setRouteData] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [activeTab, setActiveTab] = useState("all")
-  const [apiKeyAvailable, setApiKeyAvailable] = useState(true)
 
   useEffect(() => {
     // Check if API key is available
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    setApiKeyAvailable(!!apiKey)
 
+    // Log for debugging
     if (!apiKey) {
       console.warn("Google Maps API key is not set in environment variables")
-      setApiKeyAvailable(false)
-    } else if (apiKey === "YOUR_ACTUAL_API_KEY_HERE") {
-      console.warn("Default placeholder API key is being used")
-      setApiKeyAvailable(false)
     } else {
       console.log("Google Maps API key is available")
-      setApiKeyAvailable(true)
     }
 
     // Initial data fetch
@@ -126,18 +122,21 @@ export default function RoutesPage() {
             <span className="text-xl font-bold">HealthRoute AI</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link href="/" className="text-sm font-medium">
+            <a href="/" className="text-sm font-medium">
               Home
-            </Link>
-            <Link href="/dashboard" className="text-sm font-medium">
+            </a>
+            <a href="/dashboard" className="text-sm font-medium">
               Dashboard
-            </Link>
-            <Link href="/simulation" className="text-sm font-medium">
+            </a>
+            <a href="/simulation" className="text-sm font-medium">
               Simulation
-            </Link>
-            <Link href="/routes" className="text-sm font-medium text-emerald-600">
+            </a>
+            <a href="/routes" className="text-sm font-medium text-emerald-600">
               Routes
-            </Link>
+            </a>
+            <a href="/about" className="text-sm font-medium">
+              About
+            </a>
           </nav>
         </div>
       </header>
@@ -153,17 +152,10 @@ export default function RoutesPage() {
           {!apiKeyAvailable && (
             <Alert variant="warning">
               <AlertCircle className="h-4 w-4" />
-              <AlertTitle>Google Maps API Key Required</AlertTitle>
+              <AlertTitle>API Key Required</AlertTitle>
               <AlertDescription>
-                To display the map properly, you need to add your Google Maps API key to the environment variables.
-                <div className="mt-2">
-                  <p>To fix this issue:</p>
-                  <ol className="list-decimal ml-5 mt-1 space-y-1">
-                    <li>Get a Google Maps API key from the Google Cloud Console</li>
-                    <li>Add it to your environment variables as NEXT_PUBLIC_GOOGLE_MAPS_API_KEY</li>
-                    <li>Make sure the Maps JavaScript API is enabled in your Google Cloud Console</li>
-                  </ol>
-                </div>
+                To see the actual Google Maps, please add your Google Maps API key to the environment variables. The
+                environment variable should be named NEXT_PUBLIC_GOOGLE_MAPS_API_KEY.
               </AlertDescription>
             </Alert>
           )}
