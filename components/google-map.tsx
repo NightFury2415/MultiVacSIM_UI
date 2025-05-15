@@ -23,7 +23,7 @@ export default function GoogleMapComponent({
   const [markers, setMarkers] = useState<google.maps.Marker[]>([])
   const [routes, setRoutes] = useState<google.maps.Polyline[]>([])
 
-  // Load the map
+  // Load the map (yes)
   useEffect(() => {
     // Direct script loading approach
     const loadGoogleMapsScript = () => {
