@@ -1,6 +1,23 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Activity, TrendingUp, Users, Map, AlertTriangle, WormIcon as Virus } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  TrendingUp,
+  Users,
+  AlertTriangle,
+  WormIcon as Virus,
+} from "lucide-react";
+import Link from "next/link";
+import DiseaseTrendChart from "@/components/disease-trend-chart";
+import RegionalDistributionChart from "@/components/regional-distribution-chart";
+import AIPerformanceMetrics from "@/components/ai-performance-metrics";
+import GoogleMapComponent from "@/components/google-map-component";
+import AnalyticsDashboard from "@/components/analytics-dashboard";
 
 export default function DashboardPage() {
   return (
@@ -8,25 +25,32 @@ export default function DashboardPage() {
       <header className="bg-white border-b sticky top-0 z-10">
         <div className="container flex h-16 items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <Activity className="h-6 w-6 text-emerald-600" />
-            <span className="text-xl font-bold">HealthRoute AI</span>
+            <img
+              src="/images/ai-robot.png"
+              alt="AI Robot"
+              className="h-10 w-10"
+            />
+            <span className="text-xl font-bold">MultiVacSIM</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <a href="/" className="text-sm font-medium">
+            <Link href="/" className="text-sm font-medium">
               Home
-            </a>
-            <a href="/dashboard" className="text-sm font-medium text-emerald-600">
+            </Link>
+            <Link
+              href="/dashboard"
+              className="text-sm font-medium text-emerald-600"
+            >
               Dashboard
-            </a>
-            <a href="/simulation" className="text-sm font-medium">
+            </Link>
+            <Link href="/simulation" className="text-sm font-medium">
               Simulation
-            </a>
-            <a href="/routes" className="text-sm font-medium">
+            </Link>
+            <Link href="/routes" className="text-sm font-medium">
               Routes
-            </a>
-            <a href="/about" className="text-sm font-medium">
+            </Link>
+            <Link href="/about" className="text-sm font-medium">
               About
-            </a>
+            </Link>
           </nav>
         </div>
       </header>
@@ -35,14 +59,17 @@ export default function DashboardPage() {
           <div className="flex flex-col gap-2">
             <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
             <p className="text-gray-500">
-              Monitor COVID-19 and flu data, view optimized routes, and track reinforcement learning progress.
+              Monitor COVID-19 and flu data, view optimized routes, and track
+              reinforcement learning progress.
             </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active COVID-19 Cases</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Active COVID-19 Cases
+                </CardTitle>
                 <Virus className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
@@ -52,7 +79,9 @@ export default function DashboardPage() {
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active Flu Cases</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Active Flu Cases
+                </CardTitle>
                 <AlertTriangle className="h-4 w-4 text-amber-500" />
               </CardHeader>
               <CardContent>
@@ -62,7 +91,9 @@ export default function DashboardPage() {
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Vaccination Rate</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Vaccination Rate
+                </CardTitle>
                 <Users className="h-4 w-4 text-emerald-500" />
               </CardHeader>
               <CardContent>
@@ -72,7 +103,9 @@ export default function DashboardPage() {
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">AI Model Accuracy</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  AI Model Accuracy
+                </CardTitle>
                 <TrendingUp className="h-4 w-4 text-blue-500" />
               </CardHeader>
               <CardContent>
@@ -88,31 +121,30 @@ export default function DashboardPage() {
               <TabsTrigger value="covid">COVID-19</TabsTrigger>
               <TabsTrigger value="flu">Flu</TabsTrigger>
               <TabsTrigger value="ai">AI Models</TabsTrigger>
+              <TabsTrigger value="analytics">Analytics</TabsTrigger>
             </TabsList>
             <TabsContent value="overview" className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                 <Card className="lg:col-span-4">
                   <CardHeader>
                     <CardTitle>Disease Trends</CardTitle>
-                    <CardDescription>COVID-19 and flu case trends over the past 6 months</CardDescription>
+                    <CardDescription>
+                      COVID-19 and flu case trends over the past 12 months
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent className="h-[300px] flex items-center justify-center bg-gray-50 rounded-md">
-                    <div className="text-center text-gray-500">
-                      <p>Disease Trend Chart</p>
-                      <p className="text-xs">(Chart visualization would be here)</p>
-                    </div>
+                  <CardContent>
+                    <DiseaseTrendChart />
                   </CardContent>
                 </Card>
                 <Card className="lg:col-span-3">
                   <CardHeader>
                     <CardTitle>Regional Distribution</CardTitle>
-                    <CardDescription>Case distribution by region</CardDescription>
+                    <CardDescription>
+                      Case distribution by region
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent className="h-[300px] flex items-center justify-center bg-gray-50 rounded-md">
-                    <div className="text-center text-gray-500">
-                      <p>Regional Distribution Chart</p>
-                      <p className="text-xs">(Chart visualization would be here)</p>
-                    </div>
+                  <CardContent>
+                    <RegionalDistributionChart />
                   </CardContent>
                 </Card>
               </div>
@@ -120,27 +152,28 @@ export default function DashboardPage() {
                 <Card className="lg:col-span-2">
                   <CardHeader>
                     <CardTitle>Optimized Resource Routes</CardTitle>
-                    <CardDescription>AI-optimized routes for resource distribution</CardDescription>
+                    <CardDescription>
+                      AI-optimized routes for vaccine distribution
+                    </CardDescription>
                   </CardHeader>
                   <CardContent className="h-[400px] relative">
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-50 rounded-md">
-                      <div className="text-center text-gray-500">
-                        <Map className="h-8 w-8 mx-auto mb-2 text-emerald-500" />
-                        <p>Google Maps Integration</p>
-                        <p className="text-xs">(Map would be displayed here)</p>
-                      </div>
-                    </div>
+                    <GoogleMapComponent
+                      routeType="all"
+                      region="all"
+                      optimizationPriority="balanced"
+                    />
                   </CardContent>
                 </Card>
                 <Card>
                   <CardHeader>
                     <CardTitle>AI Model Performance</CardTitle>
-                    <CardDescription>Reinforcement learning model metrics</CardDescription>
+                    <CardDescription>
+                      Reinforcement learning model metrics
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent className="h-[400px] flex items-center justify-center bg-gray-50 rounded-md">
-                    <div className="text-center text-gray-500">
-                      <p>AI Performance Metrics</p>
-                      <p className="text-xs">(Performance visualization would be here)</p>
+                  <CardContent>
+                    <div className="h-[400px] overflow-y-auto pr-2">
+                      <AIPerformanceMetrics />
                     </div>
                   </CardContent>
                 </Card>
@@ -150,12 +183,33 @@ export default function DashboardPage() {
               <Card>
                 <CardHeader>
                   <CardTitle>COVID-19 Detailed Analysis</CardTitle>
-                  <CardDescription>Comprehensive data on COVID-19 cases, trends, and predictions</CardDescription>
+                  <CardDescription>
+                    Comprehensive data on COVID-19 cases, trends, and
+                    predictions
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="h-[500px] flex items-center justify-center bg-gray-50 rounded-md">
-                  <div className="text-center text-gray-500">
-                    <p>COVID-19 Analysis Dashboard</p>
-                    <p className="text-xs">(Detailed COVID-19 data would be displayed here)</p>
+                <CardContent className="h-[500px]">
+                  <div className="grid gap-4 grid-cols-1 md:grid-cols-2 h-full">
+                    <Card className="border-0 shadow-none">
+                      <CardHeader>
+                        <CardTitle className="text-base">
+                          COVID-19 Trend Analysis
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <DiseaseTrendChart />
+                      </CardContent>
+                    </Card>
+                    <Card className="border-0 shadow-none">
+                      <CardHeader>
+                        <CardTitle className="text-base">
+                          Regional Impact
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <RegionalDistributionChart />
+                      </CardContent>
+                    </Card>
                   </div>
                 </CardContent>
               </Card>
@@ -164,12 +218,32 @@ export default function DashboardPage() {
               <Card>
                 <CardHeader>
                   <CardTitle>Flu Detailed Analysis</CardTitle>
-                  <CardDescription>Comprehensive data on flu cases, trends, and predictions</CardDescription>
+                  <CardDescription>
+                    Comprehensive data on flu cases, trends, and predictions
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="h-[500px] flex items-center justify-center bg-gray-50 rounded-md">
-                  <div className="text-center text-gray-500">
-                    <p>Flu Analysis Dashboard</p>
-                    <p className="text-xs">(Detailed flu data would be displayed here)</p>
+                <CardContent className="h-[500px]">
+                  <div className="grid gap-4 grid-cols-1 md:grid-cols-2 h-full">
+                    <Card className="border-0 shadow-none">
+                      <CardHeader>
+                        <CardTitle className="text-base">
+                          Flu Trend Analysis
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <DiseaseTrendChart />
+                      </CardContent>
+                    </Card>
+                    <Card className="border-0 shadow-none">
+                      <CardHeader>
+                        <CardTitle className="text-base">
+                          Regional Impact
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <RegionalDistributionChart />
+                      </CardContent>
+                    </Card>
                   </div>
                 </CardContent>
               </Card>
@@ -178,19 +252,21 @@ export default function DashboardPage() {
               <Card>
                 <CardHeader>
                   <CardTitle>AI Model Performance</CardTitle>
-                  <CardDescription>Detailed metrics on reinforcement learning model performance</CardDescription>
+                  <CardDescription>
+                    Detailed metrics on reinforcement learning model performance
+                  </CardDescription>
                 </CardHeader>
-                <CardContent className="h-[500px] flex items-center justify-center bg-gray-50 rounded-md">
-                  <div className="text-center text-gray-500">
-                    <p>AI Model Performance Dashboard</p>
-                    <p className="text-xs">(Detailed AI metrics would be displayed here)</p>
-                  </div>
+                <CardContent>
+                  <AIPerformanceMetrics />
                 </CardContent>
               </Card>
+            </TabsContent>
+            <TabsContent value="analytics" className="space-y-4">
+              <AnalyticsDashboard />
             </TabsContent>
           </Tabs>
         </div>
       </main>
     </div>
-  )
+  );
 }
