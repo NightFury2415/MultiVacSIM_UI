@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BarChart3, Map, Brain, Activity } from "lucide-react"
+import { ArrowRight, BarChart3, Map, Brain } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,8 +10,8 @@ export default function Home() {
       <header className="bg-white border-b sticky top-0 z-10">
         <div className="container flex h-16 items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <Activity className="h-6 w-6 text-emerald-600" />
-            <span className="text-xl font-bold">HealthRoute AI</span>
+            <img src="/images/ai-robot.png" alt="AI Robot" className="h-10 w-10" />
+            <span className="text-xl font-bold">MultiVacSIM</span>
           </div>
           <nav className="hidden md:flex gap-6">
             <Link href="/" className="text-sm font-medium">
@@ -43,11 +43,11 @@ export default function Home() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Reinforcement Learning for COVID-19 & Flu Management
+                  Reinforcement Learning for Multi-Vaccine Distribution
                 </h1>
                 <p className="max-w-[600px] text-gray-500 md:text-xl">
-                  Our platform uses advanced AI to optimize response strategies, resource allocation, and route planning
-                  to combat infectious diseases more effectively.
+                  Our platform uses advanced AI to optimize COVID-19 and flu vaccine distribution strategies, resource
+                  allocation, and route planning to combat infectious diseases more effectively.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link href="/dashboard">
@@ -66,9 +66,9 @@ export default function Home() {
               <div className="flex justify-center">
                 <div className="relative w-full max-w-[500px] aspect-video rounded-xl overflow-hidden shadow-xl">
                   <img
-                    src="/placeholder.svg?height=500&width=800"
-                    alt="AI-powered disease management visualization"
-                    className="object-cover w-full h-full"
+                    src="/images/reinforcement-learning-diagram.png"
+                    alt="Reinforcement Learning Diagram"
+                    className="object-contain w-full h-full bg-white p-4"
                   />
                 </div>
               </div>
@@ -100,7 +100,7 @@ export default function Home() {
                 <CardContent>
                   <p className="text-sm text-gray-500">
                     Our models continuously learn from new data, adapting strategies to changing conditions and
-                    improving outcomes.
+                    improving outcomes for both COVID-19 and flu vaccine distribution.
                   </p>
                 </CardContent>
                 <CardFooter>
@@ -120,8 +120,8 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-500">
-                    Visualize optimal routes for resource distribution, testing centers, and vaccination campaigns to
-                    maximize coverage.
+                    Visualize optimal routes for vaccine distribution at national, regional, and state levels to
+                    maximize coverage and minimize wastage.
                   </p>
                 </CardContent>
                 <CardFooter>
@@ -141,8 +141,8 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-500">
-                    Interactive charts and maps to monitor disease spread, resource allocation, and the effectiveness of
-                    interventions.
+                    Interactive charts and maps to monitor disease spread, vaccine allocation, and the effectiveness of
+                    interventions for both COVID-19 and seasonal flu.
                   </p>
                 </CardContent>
                 <CardFooter>
@@ -162,12 +162,10 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-10 lg:grid-cols-2 items-center">
               <div className="space-y-4">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-                  How Our Reinforcement Learning Works
-                </h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Why Our Approach Matters</h2>
                 <p className="text-gray-500 md:text-xl">
-                  Our AI models learn from historical data and simulations to develop optimal strategies for disease
-                  management.
+                  Static vaccine allocation strategies lack real-time responsiveness. Our reinforcement learning
+                  approach provides:
                 </p>
                 <ul className="grid gap-4">
                   <li className="flex items-start gap-2">
@@ -175,9 +173,9 @@ export default function Home() {
                       1
                     </div>
                     <div>
-                      <h3 className="font-medium">Data Collection & Analysis</h3>
+                      <h3 className="font-medium">Reduced Hospitalizations & Deaths</h3>
                       <p className="text-sm text-gray-500">
-                        Gathering and processing data from various sources to understand disease patterns
+                        Optimized distribution strategies that target high-risk areas first
                       </p>
                     </div>
                   </li>
@@ -186,10 +184,9 @@ export default function Home() {
                       2
                     </div>
                     <div>
-                      <h3 className="font-medium">Model Training</h3>
+                      <h3 className="font-medium">Minimized Vaccine Wastage</h3>
                       <p className="text-sm text-gray-500">
-                        Training reinforcement learning models to optimize resource allocation and intervention
-                        strategies
+                        Intelligent allocation that considers supply chain constraints and local demand
                       </p>
                     </div>
                   </li>
@@ -198,9 +195,9 @@ export default function Home() {
                       3
                     </div>
                     <div>
-                      <h3 className="font-medium">Strategy Simulation</h3>
+                      <h3 className="font-medium">Responsive to Emerging Threats</h3>
                       <p className="text-sm text-gray-500">
-                        Testing strategies in simulated environments to evaluate effectiveness
+                        Adapts to new variants and seasonal surges with real-time data integration
                       </p>
                     </div>
                   </li>
@@ -209,9 +206,9 @@ export default function Home() {
                       4
                     </div>
                     <div>
-                      <h3 className="font-medium">Route Optimization</h3>
+                      <h3 className="font-medium">Multi-level Optimization</h3>
                       <p className="text-sm text-gray-500">
-                        Using Google Maps to visualize and optimize routes for resource distribution
+                        Works at national, regional, and state levels for comprehensive coverage
                       </p>
                     </div>
                   </li>
@@ -222,8 +219,8 @@ export default function Home() {
               </div>
               <div className="relative h-[400px] w-full rounded-xl overflow-hidden shadow-xl">
                 <img
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Reinforcement learning process visualization"
+                  src="/images/vaccine-distribution-map.png"
+                  alt="Vaccine distribution map showing optimized routes"
                   className="object-cover w-full h-full"
                 />
               </div>
@@ -236,7 +233,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Ready to Optimize Your Response Strategy?
+                  Ready to Optimize Your Vaccine Distribution Strategy?
                 </h2>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed">
                   Start using our platform today to improve your COVID-19 and flu management approaches.
@@ -256,11 +253,11 @@ export default function Home() {
         <div className="container flex flex-col gap-4 py-10 md:flex-row md:gap-8">
           <div className="flex flex-col gap-2 md:gap-4 md:flex-1">
             <div className="flex items-center gap-2">
-              <Activity className="h-5 w-5 text-emerald-600" />
-              <span className="text-lg font-bold">HealthRoute AI</span>
+              <img src="/images/ai-robot.png" alt="AI Robot" className="h-6 w-6" />
+              <span className="text-lg font-bold">MultiVacSIM</span>
             </div>
             <p className="text-sm text-gray-500">
-              Advanced reinforcement learning solutions for COVID-19 and flu management.
+              Advanced reinforcement learning solutions for COVID-19 and flu vaccine distribution.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:flex-1">
@@ -323,7 +320,7 @@ export default function Home() {
         </div>
         <div className="border-t py-6">
           <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-xs text-gray-500">© 2025 HealthRoute AI. All rights reserved.</p>
+            <p className="text-xs text-gray-500">© 2025 MultiVacSIM. All rights reserved.</p>
             <div className="flex gap-4">
               <Link href="#" className="text-gray-500 hover:text-gray-900">
                 <span className="sr-only">Twitter</span>

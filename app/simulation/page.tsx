@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Slider } from "@/components/ui/slider"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Activity, Play, Pause, RotateCcw, Save, Brain, Settings } from "lucide-react"
+import { Activity, Play, Pause, RotateCcw, Brain, Settings } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
+import Link from "next/link"
+import SimulationVisualization from "@/components/simulation-visualization"
+import AIPerformanceMetrics from "@/components/ai-performance-metrics"
+import GoogleMapComponent from "@/components/google-map-component" // Import GoogleMapComponent
 
 export default function SimulationPage() {
   return (
@@ -13,34 +17,42 @@ export default function SimulationPage() {
       <header className="bg-white border-b sticky top-0 z-10">
         <div className="container flex h-16 items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <Activity className="h-6 w-6 text-emerald-600" />
-            <span className="text-xl font-bold">HealthRoute AI</span>
+            <img src="/images/ai-robot.png" alt="AI Robot" className="h-10 w-10" />
+            <span className="text-xl font-bold">MultiVacSIM</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <a href="/" className="text-sm font-medium">
+            <Link href="/" className="text-sm font-medium">
               Home
-            </a>
-            <a href="/dashboard" className="text-sm font-medium">
+            </Link>
+            <Link href="/dashboard" className="text-sm font-medium">
               Dashboard
-            </a>
-            <a href="/simulation" className="text-sm font-medium text-emerald-600">
+            </Link>
+            <Link href="/simulation" className="text-sm font-medium text-emerald-600">
               Simulation
-            </a>
-            <a href="/routes" className="text-sm font-medium">
+            </Link>
+            <Link href="/routes" className="text-sm font-medium">
               Routes
-            </a>
-            <a href="/about" className="text-sm font-medium">
+            </Link>
+            <Link href="/about" className="text-sm font-medium">
               About
-            </a>
+            </Link>
           </nav>
         </div>
       </header>
       <main className="flex-1 container py-6">
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-4 mb-2">
+              <img
+                src="/images/reinforcement-learning-diagram.png"
+                alt="Reinforcement Learning Diagram"
+                className="h-12 md:h-16"
+              />
+            </div>
             <h1 className="text-3xl font-bold tracking-tight">Reinforcement Learning Simulation</h1>
             <p className="text-gray-500">
-              Run simulations to train and test reinforcement learning models for disease management strategies.
+              Run simulations to train and test reinforcement learning models for COVID-19 and flu vaccine distribution
+              strategies.
             </p>
           </div>
 
@@ -167,21 +179,9 @@ export default function SimulationPage() {
                 <CardTitle>Simulation Visualization</CardTitle>
                 <CardDescription>Real-time visualization of the reinforcement learning simulation</CardDescription>
               </CardHeader>
-              <CardContent className="h-[400px] flex items-center justify-center bg-gray-50 rounded-md">
-                <div className="text-center text-gray-500">
-                  <Brain className="h-16 w-16 mx-auto mb-4 text-emerald-500 opacity-50" />
-                  <p className="text-lg font-medium">Simulation Visualization</p>
-                  <p className="text-sm">(Reinforcement learning simulation would be displayed here)</p>
-                  <p className="text-xs mt-2">Configure parameters and click Run to start the simulation</p>
-                </div>
+              <CardContent>
+                <SimulationVisualization />
               </CardContent>
-              <CardFooter className="flex justify-between">
-                <div className="text-sm text-gray-500">Simulation time: 00:00:00</div>
-                <Button variant="outline" size="sm">
-                  <Save className="mr-2 h-4 w-4" />
-                  Save Results
-                </Button>
-              </CardFooter>
             </Card>
           </div>
 
@@ -198,11 +198,8 @@ export default function SimulationPage() {
                   <CardTitle>Simulation Results</CardTitle>
                   <CardDescription>Outcomes and insights from the reinforcement learning simulation</CardDescription>
                 </CardHeader>
-                <CardContent className="h-[400px] flex items-center justify-center bg-gray-50 rounded-md">
-                  <div className="text-center text-gray-500">
-                    <p>Simulation Results Dashboard</p>
-                    <p className="text-xs">(Results would be displayed here after running a simulation)</p>
-                  </div>
+                <CardContent>
+                  <AIPerformanceMetrics />
                 </CardContent>
               </Card>
             </TabsContent>
@@ -216,47 +213,47 @@ export default function SimulationPage() {
                   <div className="space-y-8">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <label className="text-sm font-medium">Model Accuracy</label>
-                        <span className="text-sm text-emerald-600">94.2%</span>
+                        <label className="text-sm font-medium">Vaccination Rate</label>
+                        <span className="text-sm text-emerald-600">+5-6x</span>
                       </div>
                       <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "94.2%" }}></div>
+                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "85%" }}></div>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <label className="text-sm font-medium">Resource Efficiency</label>
-                        <span className="text-sm text-emerald-600">87.5%</span>
+                        <label className="text-sm font-medium">Hospitalization Reduction</label>
+                        <span className="text-sm text-emerald-600">-10x</span>
                       </div>
                       <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "87.5%" }}></div>
+                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "78%" }}></div>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <label className="text-sm font-medium">Route Optimization</label>
-                        <span className="text-sm text-emerald-600">92.1%</span>
+                        <label className="text-sm font-medium">Mortality Reduction</label>
+                        <span className="text-sm text-emerald-600">-15-20x</span>
                       </div>
                       <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "92.1%" }}></div>
+                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "92%" }}></div>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <label className="text-sm font-medium">Infection Reduction</label>
-                        <span className="text-sm text-emerald-600">78.3%</span>
+                        <label className="text-sm font-medium">Wastage Reduction</label>
+                        <span className="text-sm text-emerald-600">-7-8x</span>
                       </div>
                       <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "78.3%" }}></div>
+                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "83%" }}></div>
                       </div>
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <label className="text-sm font-medium">Coverage Effectiveness</label>
-                        <span className="text-sm text-emerald-600">89.7%</span>
+                        <label className="text-sm font-medium">Seasonal Effectiveness</label>
+                        <span className="text-sm text-emerald-600">+5x</span>
                       </div>
                       <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "89.7%" }}></div>
+                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: "89%" }}></div>
                       </div>
                     </div>
                   </div>
@@ -269,11 +266,8 @@ export default function SimulationPage() {
                   <CardTitle>AI-Optimized Routes</CardTitle>
                   <CardDescription>Routes generated by the reinforcement learning model</CardDescription>
                 </CardHeader>
-                <CardContent className="h-[400px] flex items-center justify-center bg-gray-50 rounded-md">
-                  <div className="text-center text-gray-500">
-                    <p>Optimized Routes Map</p>
-                    <p className="text-xs">(Google Maps visualization would be displayed here)</p>
-                  </div>
+                <CardContent className="h-[400px]">
+                  <GoogleMapComponent routeType="all" region="all" optimizationPriority="balanced" />
                 </CardContent>
               </Card>
             </TabsContent>
