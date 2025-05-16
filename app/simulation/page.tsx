@@ -45,10 +45,7 @@ export default function SimulationPage() {
           </div>
           <nav className="hidden md:flex gap-6">
             <Link href="/" className="text-sm font-medium">
-            <Link href="/" className="text-sm font-medium">
               Home
-            </Link>
-            <Link href="/dashboard" className="text-sm font-medium">
             </Link>
             <Link href="/dashboard" className="text-sm font-medium">
               Dashboard
@@ -60,15 +57,10 @@ export default function SimulationPage() {
               Simulation
             </Link>
             <Link href="/routes" className="text-sm font-medium">
-            </Link>
-            <Link href="/routes" className="text-sm font-medium">
               Routes
             </Link>
             <Link href="/about" className="text-sm font-medium">
-            </Link>
-            <Link href="/about" className="text-sm font-medium">
               About
-            </Link>
             </Link>
           </nav>
         </div>
@@ -237,8 +229,6 @@ export default function SimulationPage() {
               </CardHeader>
               <CardContent>
                 <SimulationVisualization />
-              <CardContent>
-                <SimulationVisualization />
               </CardContent>
             </Card>
           </div>
@@ -259,8 +249,6 @@ export default function SimulationPage() {
                     simulation
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <AIPerformanceMetrics />
                 <CardContent>
                   <AIPerformanceMetrics />
                 </CardContent>

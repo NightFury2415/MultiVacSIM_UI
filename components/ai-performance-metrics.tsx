@@ -23,8 +23,19 @@ import { fetchCSVData, processDataForCharts, dataUrls } from "@/lib/data-utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function AIPerformanceMetrics() {
-  const [covidData, setCovidData] = useState<any[]>([]);
-  const [fluData, setFluData] = useState<any[]>([]);
+  type ChartData = {
+    raw: any[];
+    normalized: any[];
+  };
+
+  const [covidData, setCovidData] = useState<ChartData>({
+    raw: [],
+    normalized: [],
+  });
+  const [fluData, setFluData] = useState<ChartData>({
+    raw: [],
+    normalized: [],
+  });
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

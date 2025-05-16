@@ -34,7 +34,6 @@ export default function DashboardPage() {
           </div>
           <nav className="hidden md:flex gap-6">
             <Link href="/" className="text-sm font-medium">
-            <Link href="/" className="text-sm font-medium">
               Home
             </Link>
             <Link
@@ -44,20 +43,13 @@ export default function DashboardPage() {
               Dashboard
             </Link>
             <Link href="/simulation" className="text-sm font-medium">
-            </Link>
-            <Link href="/simulation" className="text-sm font-medium">
               Simulation
-            </Link>
-            <Link href="/routes" className="text-sm font-medium">
             </Link>
             <Link href="/routes" className="text-sm font-medium">
               Routes
             </Link>
             <Link href="/about" className="text-sm font-medium">
-            </Link>
-            <Link href="/about" className="text-sm font-medium">
               About
-            </Link>
             </Link>
           </nav>
         </div>
@@ -130,19 +122,13 @@ export default function DashboardPage() {
               <TabsTrigger value="flu">Flu</TabsTrigger>
               <TabsTrigger value="ai">AI Models</TabsTrigger>
               <TabsTrigger value="analytics">Analytics</TabsTrigger>
-              <TabsTrigger value="analytics">Analytics</TabsTrigger>
             </TabsList>
             <TabsContent value="overview" className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                 <Card className="lg:col-span-4">
                   <CardHeader>
                     <CardTitle>Disease Trends</CardTitle>
-                    <CardDescription>
-                      COVID-19 and flu case trends over the past 12 months
-                    </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <DiseaseTrendChart />
                   <CardContent>
                     <DiseaseTrendChart />
                   </CardContent>
@@ -151,11 +137,9 @@ export default function DashboardPage() {
                   <CardHeader>
                     <CardTitle>Regional Distribution</CardTitle>
                     <CardDescription>
-                      Case distribution by region
+                      Distribution of cases by region
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <RegionalDistributionChart />
                   <CardContent>
                     <RegionalDistributionChart />
                   </CardContent>
@@ -166,10 +150,10 @@ export default function DashboardPage() {
                   <CardHeader>
                     <CardTitle>Optimized Resource Routes</CardTitle>
                     <CardDescription>
-                      AI-optimized routes for vaccine distribution
+                      Optimized routes for resource delivery
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="h-[400px] relative">
+                  <CardContent>
                     <GoogleMapComponent
                       routeType="all"
                       region="all"
@@ -187,9 +171,6 @@ export default function DashboardPage() {
                   <CardContent>
                     <div className="h-[400px] overflow-y-auto pr-2">
                       <AIPerformanceMetrics />
-                  <CardContent>
-                    <div className="h-[400px] overflow-y-auto pr-2">
-                      <AIPerformanceMetrics />
                     </div>
                   </CardContent>
                 </Card>
@@ -199,12 +180,8 @@ export default function DashboardPage() {
               <Card>
                 <CardHeader>
                   <CardTitle>COVID-19 Detailed Analysis</CardTitle>
-                  <CardDescription>
-                    Comprehensive data on COVID-19 cases, trends, and
-                    predictions
-                  </CardDescription>
                 </CardHeader>
-                <CardContent className="h-[500px]">
+                <CardContent>
                   <div className="grid gap-4 grid-cols-1 md:grid-cols-2 h-full">
                     <Card className="border-0 shadow-none">
                       <CardHeader>
@@ -272,8 +249,6 @@ export default function DashboardPage() {
                     Detailed metrics on reinforcement learning model performance
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <AIPerformanceMetrics />
                 <CardContent>
                   <AIPerformanceMetrics />
                 </CardContent>
