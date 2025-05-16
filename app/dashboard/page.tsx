@@ -34,6 +34,7 @@ export default function DashboardPage() {
           </div>
           <nav className="hidden md:flex gap-6">
             <Link href="/" className="text-sm font-medium">
+            <Link href="/" className="text-sm font-medium">
               Home
             </Link>
             <Link
@@ -43,13 +44,20 @@ export default function DashboardPage() {
               Dashboard
             </Link>
             <Link href="/simulation" className="text-sm font-medium">
+            </Link>
+            <Link href="/simulation" className="text-sm font-medium">
               Simulation
+            </Link>
+            <Link href="/routes" className="text-sm font-medium">
             </Link>
             <Link href="/routes" className="text-sm font-medium">
               Routes
             </Link>
             <Link href="/about" className="text-sm font-medium">
+            </Link>
+            <Link href="/about" className="text-sm font-medium">
               About
+            </Link>
             </Link>
           </nav>
         </div>
@@ -122,6 +130,7 @@ export default function DashboardPage() {
               <TabsTrigger value="flu">Flu</TabsTrigger>
               <TabsTrigger value="ai">AI Models</TabsTrigger>
               <TabsTrigger value="analytics">Analytics</TabsTrigger>
+              <TabsTrigger value="analytics">Analytics</TabsTrigger>
             </TabsList>
             <TabsContent value="overview" className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
@@ -134,6 +143,8 @@ export default function DashboardPage() {
                   </CardHeader>
                   <CardContent>
                     <DiseaseTrendChart />
+                  <CardContent>
+                    <DiseaseTrendChart />
                   </CardContent>
                 </Card>
                 <Card className="lg:col-span-3">
@@ -143,6 +154,8 @@ export default function DashboardPage() {
                       Case distribution by region
                     </CardDescription>
                   </CardHeader>
+                  <CardContent>
+                    <RegionalDistributionChart />
                   <CardContent>
                     <RegionalDistributionChart />
                   </CardContent>
@@ -171,6 +184,9 @@ export default function DashboardPage() {
                       Reinforcement learning model metrics
                     </CardDescription>
                   </CardHeader>
+                  <CardContent>
+                    <div className="h-[400px] overflow-y-auto pr-2">
+                      <AIPerformanceMetrics />
                   <CardContent>
                     <div className="h-[400px] overflow-y-auto pr-2">
                       <AIPerformanceMetrics />
@@ -258,8 +274,13 @@ export default function DashboardPage() {
                 </CardHeader>
                 <CardContent>
                   <AIPerformanceMetrics />
+                <CardContent>
+                  <AIPerformanceMetrics />
                 </CardContent>
               </Card>
+            </TabsContent>
+            <TabsContent value="analytics" className="space-y-4">
+              <AnalyticsDashboard />
             </TabsContent>
             <TabsContent value="analytics" className="space-y-4">
               <AnalyticsDashboard />

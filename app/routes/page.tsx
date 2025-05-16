@@ -159,21 +159,24 @@ export default function RoutesPage() {
             <span className="text-xl font-bold">MultiVacSIM</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <a href="/" className="text-sm font-medium">
+            <Link href="/" className="text-sm font-medium">
               Home
-            </a>
-            <a href="/dashboard" className="text-sm font-medium">
+            </Link>
+            <Link href="/dashboard" className="text-sm font-medium">
               Dashboard
-            </a>
-            <a href="/simulation" className="text-sm font-medium">
+            </Link>
+            <Link href="/simulation" className="text-sm font-medium">
               Simulation
-            </a>
-            <a href="/routes" className="text-sm font-medium text-emerald-600">
+            </Link>
+            <Link
+              href="/routes"
+              className="text-sm font-medium text-emerald-600"
+            >
               Routes
-            </a>
-            <a href="/about" className="text-sm font-medium">
+            </Link>
+            <Link href="/about" className="text-sm font-medium">
               About
-            </a>
+            </Link>
           </nav>
         </div>
       </header>
